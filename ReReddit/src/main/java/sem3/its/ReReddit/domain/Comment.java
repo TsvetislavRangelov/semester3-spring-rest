@@ -11,12 +11,14 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Post {
+
+public class Comment {
     private Long id;
     private User author;
-    private String header;
     private String body;
+    private Post post;
     private int ups;
     private int downs;
-    private List<Comment> comments;
+    private Comment parent;
+    private List<Comment> children;
 }
