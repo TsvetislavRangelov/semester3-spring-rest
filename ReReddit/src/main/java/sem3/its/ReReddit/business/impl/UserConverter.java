@@ -9,11 +9,12 @@ public class UserConverter {
 
     }
 
-//    public static User convert(UserEntity entity){
-//        return User.builder()
-//                .id(entity.getId())
-//                .posts(entity.getPosts())
-//                .password(entity.getPassword())
-//                .username(entity.getUsername())
-//    }
+    public static User convert(UserEntity entity){
+        return User.builder()
+                .id(entity.getId())
+                .posts(null)
+                .password(entity.getPassword())
+                .username(entity.getUsername())
+                .build();
+    }
 }

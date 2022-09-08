@@ -10,17 +10,19 @@ public class PostConverter {
     private PostConverter(){
 
     }
-//    public static List<Post> convertList(List<PostEntity> list){
-//        List<Post> convertedPosts = new ArrayList<>();
-//        for(PostEntity p : list){
-//            Post.builder()
-//                    .id(p.getId())
-//                    .author(p.getAuthor())
-//                    .body(p.getBody())
-//                    .ups(p.getUps())
-//                    .downs(p.getDowns())
-//                    .header(p.getHeader())
-//                    .comments()
-//        }
-//    }
+    public static List<Post> convertList(List<PostEntity> list){
+        List<Post> convertedPosts = new ArrayList<>();
+        for(PostEntity p : list) {
+            convertedPosts.add(Post.builder()
+                    .id(p.getId())
+                    .author(UserConverter.convert(p.getAuthor()))
+                    .body(p.getBody())
+                    .ups(p.getUps())
+                    .downs(p.getDowns())
+                    .header(p.getHeader())
+                    .comments(null)
+                    .build());
+        }
+        return convertedPosts;
+    }
 }
