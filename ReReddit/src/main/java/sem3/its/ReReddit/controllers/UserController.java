@@ -1,15 +1,17 @@
 package sem3.its.ReReddit.controllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import sem3.its.ReReddit.business.CreateUserUseCase;
 import sem3.its.ReReddit.business.GetUserUseCase;
 import sem3.its.ReReddit.business.GetUsersUseCase;
+import sem3.its.ReReddit.domain.CreateUserRequest;
+import sem3.its.ReReddit.domain.CreateUserResponse;
 import sem3.its.ReReddit.domain.GetUsersResponse;
 import sem3.its.ReReddit.domain.User;
+import javax.validation.*;
 
 import java.util.Optional;
 
@@ -19,6 +21,7 @@ import java.util.Optional;
 public class UserController {
     private final GetUsersUseCase getUsersUseCase;
     private final GetUserUseCase getUserUseCase;
+    private final CreateUserUseCase createUserUseCase;
 
     @GetMapping
     public ResponseEntity<GetUsersResponse> getAllUsers(){
@@ -32,5 +35,11 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(userOptional.get());
+    }
+
+    @PostMapping()
+    public ResponseEntity<CreateUserResponse> createUser(@RequestBody @Valid CreateUserRequest request){
+        CreateUserResponse res = createUserUseCase.createUser(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
 }

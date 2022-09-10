@@ -10,7 +10,7 @@ public class PostConverter {
     private PostConverter(){
 
     }
-    public static List<Post> convertList(List<PostEntity> list){
+    public static  List<Post> convertList(List<PostEntity> list){
         List<Post> convertedPosts = new ArrayList<>();
         for(PostEntity p : list) {
             convertedPosts.add(Post.builder()
@@ -20,7 +20,7 @@ public class PostConverter {
                     .ups(p.getUps())
                     .downs(p.getDowns())
                     .header(p.getHeader())
-                    .comments(null)
+                    .comments(CommentConverter.convertList(p.getComments()))
                     .build());
         }
         return convertedPosts;

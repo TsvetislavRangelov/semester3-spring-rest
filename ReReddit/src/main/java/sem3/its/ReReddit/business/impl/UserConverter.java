@@ -12,7 +12,7 @@ public class UserConverter {
     public static User convert(UserEntity entity){
         return User.builder()
                 .id(entity.getId())
-                .posts(null)
+                .posts(PostConverter.convertList(entity.getPosts()))
                 .password(entity.getPassword())
                 .username(entity.getUsername())
                 .build();

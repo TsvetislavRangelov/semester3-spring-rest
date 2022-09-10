@@ -38,4 +38,13 @@ public class UserRepositoryImpl implements UserRepository {
     public int count(){
         return this.savedUsers.size();
     }
+
+    @Override
+    public boolean existsByUsername(String username){
+        Optional<UserEntity> found = savedUsers
+                .stream()
+                .filter(userEntity -> userEntity.getUsername().equals(username))
+                .findFirst();
+        return found.isPresent();
+    }
 }

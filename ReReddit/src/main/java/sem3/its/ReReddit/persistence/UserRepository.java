@@ -15,5 +15,7 @@ public interface UserRepository {
 
     int count();
 
+    boolean existsByUsername(String username);
+
 
 }
