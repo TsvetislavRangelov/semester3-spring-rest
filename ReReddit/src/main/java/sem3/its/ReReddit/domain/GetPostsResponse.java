@@ -11,9 +11,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class User {
-    private Long id;
-    private String username;
+public class GetPostsResponse {
     private List<Post> posts;
 }

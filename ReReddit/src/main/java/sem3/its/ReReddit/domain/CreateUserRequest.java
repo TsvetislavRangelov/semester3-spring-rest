@@ -15,7 +15,5 @@ import javax.validation.constraints.NotNull;
 public class CreateUserRequest {
     @NotNull
     private String username;
-    @NotBlank
-    private String password;
 
 }

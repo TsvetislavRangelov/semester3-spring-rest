@@ -5,6 +5,7 @@ import sem3.its.ReReddit.domain.Comment;
 import sem3.its.ReReddit.persistence.entity.CommentEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CommentConverter {
@@ -19,6 +20,9 @@ public class CommentConverter {
     }
 
     public static List<Comment> convertList(List<CommentEntity> list){
+        if(list == null){
+            return Collections.emptyList();
+        }
         List<Comment> convertedList = new ArrayList<>();
         for (CommentEntity c : list) {
             convertedList.add(convert(c));

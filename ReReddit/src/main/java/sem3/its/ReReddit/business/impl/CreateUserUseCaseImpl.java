@@ -3,6 +3,7 @@ package sem3.its.ReReddit.business.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import sem3.its.ReReddit.business.CreateUserUseCase;
+import sem3.its.ReReddit.business.exception.UsernameAlreadyExistsException;
 import sem3.its.ReReddit.domain.CreateUserRequest;
 import sem3.its.ReReddit.domain.CreateUserResponse;
 import sem3.its.ReReddit.persistence.UserRepository;
@@ -16,7 +17,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     @Override
     public CreateUserResponse createUser(CreateUserRequest request){
         if(userRepository.existsByUsername(request.getUsername())){
-            throw new IllegalArgumentException();
+            throw new UsernameAlreadyExistsException();
         }
 
         UserEntity createdUser = saveNewUser(request);
@@ -29,7 +30,6 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     private UserEntity saveNewUser(CreateUserRequest request){
         UserEntity userEntity = UserEntity.builder()
                 .username(request.getUsername())
-                .password(request.getPassword())
                 .build();
         return userRepository.save(userEntity);
     }
