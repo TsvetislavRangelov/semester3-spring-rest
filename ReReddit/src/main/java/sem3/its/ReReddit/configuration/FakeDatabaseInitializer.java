@@ -21,6 +21,7 @@ public class FakeDatabaseInitializer {
         userRepository.save(UserEntity.builder().id(1L).username("user1").build());
             userRepository.save(UserEntity.builder().id(2L).username("user2").build());
             userRepository.save(UserEntity.builder().id(3L).username("user3").build());
+            userRepository.save(UserEntity.builder().id(12L).username("user12").build());
             userRepository.save(UserEntity.builder().id(4L).username("user4").build());
             userRepository.save(UserEntity.builder().id(5L).username("user5").build());
             userRepository.save(UserEntity.builder().id(6L).username("user6").build());
