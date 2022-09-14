@@ -18,9 +18,12 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public UserEntity save(UserEntity entity){
-        entity.setId(NEXT_ID);
-        NEXT_ID++;
-        this.savedUsers.add(entity);
+        if(entity.getId() == null){
+            entity.setId(NEXT_ID);
+            NEXT_ID++;
+            this.savedUsers.add(entity);
+            return entity;
+        }
         return entity;
     }
 
@@ -46,5 +49,10 @@ public class UserRepositoryImpl implements UserRepository {
                 .filter(userEntity -> userEntity.getUsername().equals(username))
                 .findFirst();
         return found.isPresent();
+    }
+
+    @Override
+    public void deleteById(long id){
+        this.savedUsers.removeIf(userEntity -> userEntity.getId().equals(id));
     }
 }

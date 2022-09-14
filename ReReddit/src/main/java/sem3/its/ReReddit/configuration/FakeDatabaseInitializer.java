@@ -18,15 +18,15 @@ public class FakeDatabaseInitializer {
     @EventListener(ApplicationReadyEvent.class)
     public void initializeFakeData(){
         if(userRepository.count() == 0){
-        userRepository.save(UserEntity.builder().id(1L).username("user1").build());
-            userRepository.save(UserEntity.builder().id(2L).username("user2").build());
-            userRepository.save(UserEntity.builder().id(3L).username("user3").build());
-            userRepository.save(UserEntity.builder().id(12L).username("user12").build());
-            userRepository.save(UserEntity.builder().id(4L).username("user4").build());
-            userRepository.save(UserEntity.builder().id(5L).username("user5").build());
-            userRepository.save(UserEntity.builder().id(6L).username("user6").build());
-            userRepository.save(UserEntity.builder().id(7L).username("user7").build());
-            userRepository.save(UserEntity.builder().id(8L).username("user8").build());
+        userRepository.save(UserEntity.builder().username("user1").build());
+            userRepository.save(UserEntity.builder().username("user2").build());
+            userRepository.save(UserEntity.builder().username("user3").build());
+            userRepository.save(UserEntity.builder().username("user12").build());
+            userRepository.save(UserEntity.builder().username("user4").build());
+            userRepository.save(UserEntity.builder().username("user5").build());
+            userRepository.save(UserEntity.builder().username("user6").build());
+            userRepository.save(UserEntity.builder().username("user7").build());
+            userRepository.save(UserEntity.builder().username("user8").build());
             postRepository.save(PostEntity.builder().body("post body xd")
                     .header("post header xd")
                     .ups(10)

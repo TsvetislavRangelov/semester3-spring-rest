@@ -17,5 +17,7 @@ public interface UserRepository {
 
     boolean existsByUsername(String username);
 
+    void deleteById(long id);
+
 
 }
