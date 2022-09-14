@@ -18,4 +18,5 @@ build:
 test:
   stage: test
   script:
+    - cd .\ReReddit\
     - ./gradlew test
