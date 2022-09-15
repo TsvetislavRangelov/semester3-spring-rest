@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sem3.its.ReReddit.domain.Post;
-
-import java.util.List;
+import sem3.its.ReReddit.domain.Enums.Role;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +13,5 @@ import java.util.List;
 public class UserEntity {
     private Long id;
     private String username;
-
-    private List<PostEntity> posts;
+    private Role role;
 }

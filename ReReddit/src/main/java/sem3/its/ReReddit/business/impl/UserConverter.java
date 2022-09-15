@@ -12,12 +12,9 @@ public class UserConverter {
     }
 
     public static User convert(UserEntity entity){
-        if(entity.getPosts() == null){
-            entity.setPosts(Collections.emptyList());
-        }
         return User.builder()
                 .id(entity.getId())
-                .posts(PostConverter.convertList(entity.getPosts()))
+                .role(entity.getRole())
                 .username(entity.getUsername())
                 .build();
     }

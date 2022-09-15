@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sem3.its.ReReddit.domain.Enums.Role;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Builder
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class User {
     private Long id;
+    @NotNull
     private String username;
-    private List<Post> posts;
+    private Role role;
 }

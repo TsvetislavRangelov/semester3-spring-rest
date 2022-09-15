@@ -24,6 +24,7 @@ class GetUsersUseCaseImplTest {
     private UserRepository userRepositoryMock;
     @InjectMocks
     private GetUsersUseCaseImpl getUsersUseCase;
+
     @Test
     void getUsers_ShouldReturnAllUsersConverted() {
         UserEntity user1Entity = UserEntity.builder().id(1L).username("user1").posts(Collections.emptyList()).build();
@@ -41,10 +42,4 @@ class GetUsersUseCaseImplTest {
 
         verify(userRepositoryMock).findAll();
     }
-//    @Test
-//    void getUser_ShouldReturnConvertedUser(){
-//        UserEntity userEntity = UserEntity.builder().id(1L).username("user1").posts(List.of(PostEntity.builder()
-//                .author(null).body("postxd").downs(1).ups(10).header("headerxd").comments(Collections.emptyList()).build())).build();
-//        userEntity.getPosts().get(0).setAuthor(userEntity);
-//    }
 }
