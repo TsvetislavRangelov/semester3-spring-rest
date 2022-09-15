@@ -25,7 +25,7 @@ public class CreateUserUseCaseImplTest {
 
     @Test
     void createUser_ShouldReturnIdOfCreatedUser(){
-        UserEntity user = UserEntity.builder().username("u1").posts(null).build();
+        UserEntity user = UserEntity.builder().username("u1").build();
 
         when(userRepositoryMock.save(user))
                 .thenReturn(user);

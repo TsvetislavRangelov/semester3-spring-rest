@@ -31,14 +31,14 @@ public class GetUserUseCaseImplTest {
 
     @Test
     void getUser_ShouldReturnUserConverted(){
-        UserEntity userEntity = UserEntity.builder().id(1L).username("user1").posts(Collections.emptyList()).build();
+        UserEntity userEntity = UserEntity.builder().id(1L).username("user1").build();
 
         when(userRepositoryMock.findById(1L))
                 .thenReturn(Optional.ofNullable(userEntity));
         Optional<User> actual = getUserUseCase.getUser(1);
 
 
-        User expected = User.builder().id(1L).username("user1").posts(Collections.emptyList()).build();
+        User expected = User.builder().id(1L).username("user1").build();
 
         // actual can be null but since this is a test no checks are done to verify it
         assertEquals(expected.getId(), actual.orElse(null).getId());

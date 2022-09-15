@@ -24,7 +24,7 @@ public class DeleteUserUseCaseImplTest {
 
     @Test
     void deleteUser_ShouldDeleteUserFromRepo(){
-        UserEntity user = UserEntity.builder().id(2L).username("u2").posts(null).build();
+        UserEntity user = UserEntity.builder().id(2L).username("u2").build();
 
         userRepositoryMock.save(user);
 

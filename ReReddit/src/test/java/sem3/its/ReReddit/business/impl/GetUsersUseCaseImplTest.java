@@ -27,15 +27,15 @@ class GetUsersUseCaseImplTest {
 
     @Test
     void getUsers_ShouldReturnAllUsersConverted() {
-        UserEntity user1Entity = UserEntity.builder().id(1L).username("user1").posts(Collections.emptyList()).build();
-        UserEntity user2Entity = UserEntity.builder().id(2L).username("user2").posts(Collections.emptyList()).build();
+        UserEntity user1Entity = UserEntity.builder().id(1L).username("user1").build();
+        UserEntity user2Entity = UserEntity.builder().id(2L).username("user2").build();
         when(userRepositoryMock.findAll())
                 .thenReturn(List.of(user1Entity, user2Entity));
 
         GetUsersResponse actual = getUsersUseCase.getUsers();
 
-        User user1 = User.builder().id(1L).username("user1").posts(Collections.emptyList()).build();
-        User user2 = User.builder().id(2L).username("user2").posts(Collections.emptyList()).build();
+        User user1 = User.builder().id(1L).username("user1").build();
+        User user2 = User.builder().id(2L).username("user2").build();
 
         GetUsersResponse expected = GetUsersResponse.builder().users(List.of(user1, user2)).build();
         assertEquals(expected, actual);
