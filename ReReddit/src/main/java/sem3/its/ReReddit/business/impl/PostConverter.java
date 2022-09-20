@@ -35,7 +35,7 @@ public class PostConverter {
                     .ups(p.getUps())
                     .downs(p.getDowns())
                     .header(p.getHeader())
-                    .comments(CommentConverter.convertList(p.getComments()))
+                    .comments(p.getComments())
                     .build());
         }
         return convertedPosts;

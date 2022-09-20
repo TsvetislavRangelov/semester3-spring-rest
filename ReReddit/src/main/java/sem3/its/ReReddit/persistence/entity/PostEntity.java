@@ -14,5 +14,6 @@ public class PostEntity {
     private String body;
     private int ups;
     private int downs;
-    private List<CommentEntity> comments;
+    private int comments;
+
 }

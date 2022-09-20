@@ -1,23 +1,12 @@
 package sem3.its.ReReddit.persistence;
 
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import sem3.its.ReReddit.persistence.entity.UserEntity;
 
-import java.util.List;
-import java.util.Optional;
 
-public interface UserRepository {
-    UserEntity save(UserEntity entity);
-
-    List<UserEntity> findAll();
-
-    Optional<UserEntity> findById(Long id);
-
-    int count();
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     boolean existsByUsername(String username);
-
-    void deleteById(long id);
-
 
 }

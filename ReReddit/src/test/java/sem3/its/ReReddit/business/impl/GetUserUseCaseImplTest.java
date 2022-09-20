@@ -5,19 +5,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import sem3.its.ReReddit.domain.GetUsersResponse;
 import sem3.its.ReReddit.domain.User;
 import sem3.its.ReReddit.persistence.UserRepository;
-import sem3.its.ReReddit.persistence.entity.PostEntity;
 import sem3.its.ReReddit.persistence.entity.UserEntity;
-import org.mockito.Mockito;
 
-import java.util.Collections;
-import java.util.List;
+
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

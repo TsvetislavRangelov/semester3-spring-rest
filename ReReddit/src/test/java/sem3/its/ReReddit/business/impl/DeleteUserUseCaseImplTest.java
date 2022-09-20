@@ -32,9 +32,5 @@ public class DeleteUserUseCaseImplTest {
 
         assertEquals(Optional.empty(), userRepositoryMock.findById(2L));
 
-
-
-
-
     }
 }

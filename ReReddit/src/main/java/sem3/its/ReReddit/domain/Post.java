@@ -18,5 +18,5 @@ public class Post {
     private String body;
     private int ups;
     private int downs;
-    private List<Comment> comments;
+    private int comments;
 }
