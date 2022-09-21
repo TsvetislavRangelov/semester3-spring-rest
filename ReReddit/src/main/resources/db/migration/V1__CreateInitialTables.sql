@@ -18,6 +18,5 @@ CREATE TABLE post
     downs int,
     comments int,
     PRIMARY KEY (id),
-    UNIQUE (pcn),
     FOREIGN KEY (author_id) REFERENCES user (id)
 );

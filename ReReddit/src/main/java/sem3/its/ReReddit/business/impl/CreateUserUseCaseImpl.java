@@ -30,6 +30,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     private UserEntity saveNewUser(CreateUserRequest request){
         UserEntity userEntity = UserEntity.builder()
                 .username(request.getUsername())
+                .role(request.getRole())
                 .build();
         return userRepository.save(userEntity);
     }
