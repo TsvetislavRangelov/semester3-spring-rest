@@ -21,8 +21,14 @@ public class UserEntity {
     @Column(name = "id")
     private Long id;
     @NotBlank
+    @Column(name = "email")
+    private String email;
+    @NotBlank
     @Column(name = "username")
     private String username;
+    @NotBlank
+    @Column(name = "password")
+    private String password;
     @Column(name = "role")
     private Role role;
 }

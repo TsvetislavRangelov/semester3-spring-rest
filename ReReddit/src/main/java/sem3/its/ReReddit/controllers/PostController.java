@@ -12,6 +12,7 @@ import sem3.its.ReReddit.domain.CreatePostResponse;
 import sem3.its.ReReddit.domain.GetPostsResponse;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/posts")
 @AllArgsConstructor
 public class PostController {
