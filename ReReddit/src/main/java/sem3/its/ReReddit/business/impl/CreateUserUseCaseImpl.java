@@ -19,8 +19,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
 
     @Override
     public CreateUserResponse createUser(CreateUserRequest request){
-        if(userRepository.existsByUsername(request.getUsername()) ||
-                userRepository.existsByEmail(request.getEmail())){
+        if(userRepository.existsByUsername(request.getUsername())){
             throw new UsernameAlreadyExistsException();
         }
 
