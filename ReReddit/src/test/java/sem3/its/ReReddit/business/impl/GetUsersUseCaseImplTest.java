@@ -29,9 +29,9 @@ class GetUsersUseCaseImplTest {
     void getUsers_ShouldReturnAllUsersConverted() {
         UserEntity user1Entity = UserEntity.builder().id(1L).username("user1").build();
         UserEntity user2Entity = UserEntity.builder().id(2L).username("user2").build();
+
         when(userRepositoryMock.findAll())
                 .thenReturn(List.of(user1Entity, user2Entity));
-
         GetUsersResponse actual = getUsersUseCase.getUsers();
 
         User user1 = User.builder().id(1L).username("user1").build();
